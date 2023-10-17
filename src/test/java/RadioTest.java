@@ -4,10 +4,26 @@ import org.junit.jupiter.api.Test;
 public class RadioTest {
 
     @Test
+    public void shouldSetChanelRatio() {
+        Radio radio = new Radio(16);
+        int expected = 16;
+        int actual = radio.getCurrentChanelRatio();
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void shouldNotSetChanelRatio() {
+        Radio radio = new Radio(-16);
+        int expected = 0;
+        int actual = radio.getCurrentChanelRatio();
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @Test
     public void shouldSetChanel() {
         Radio radio = new Radio();
-        radio.setCurrentChanel(6);
-        int expected = 6;
+        radio.setCurrentChanel(9);
+        int expected = 9;
         int actual = radio.getCurrentChanel();
         Assertions.assertEquals(expected, actual);
     }
@@ -33,9 +49,9 @@ public class RadioTest {
     @Test
     public void shouldSwitchNextChanel() {
         Radio radio = new Radio();
-        radio.setCurrentChanel(6);
+        radio.setCurrentChanel(7);
         radio.nextChanel();
-        int expected = 7;
+        int expected = 8;
         int actual = radio.getCurrentChanel();
         Assertions.assertEquals(expected, actual);
     }

@@ -1,13 +1,30 @@
 public class Radio {
     public int currentChanel;
     public int currentVolume;
+    private int currentChanelRatio;
+
+    public Radio(int chanelRatio) {
+        if (chanelRatio > 0) {
+            this.currentChanelRatio = chanelRatio;
+        }
+    }
+
+    public Radio() {
+        currentChanelRatio = 10;
+    }
+
+    public int getCurrentChanelRatio() {
+
+        return currentChanelRatio;
+    }
 
     public int getCurrentChanel() {
+
         return currentChanel;
     }
 
     public void setCurrentChanel(int newChanel) {
-        if (newChanel > 9) {
+        if (newChanel > currentChanelRatio - 1) {
             return;
         }
         if (newChanel < 0) {
@@ -17,7 +34,7 @@ public class Radio {
     }
 
     public void nextChanel() {
-        if (currentChanel < 9) {
+        if (currentChanel < currentChanelRatio - 1) {
             currentChanel = currentChanel + 1;
         } else {
             currentChanel = 0;
@@ -28,7 +45,7 @@ public class Radio {
         if (currentChanel > 0) {
             currentChanel = currentChanel - 1;
         } else {
-            currentChanel = 9;
+            currentChanel = currentChanelRatio - 1;
         }
     }
 
