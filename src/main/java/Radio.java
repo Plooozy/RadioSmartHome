@@ -19,12 +19,11 @@ public class Radio {
     }
 
     public int getCurrentChanel() {
-
         return currentChanel;
     }
 
     public void setCurrentChanel(int newChanel) {
-        if (newChanel > currentChanelRatio - 1) {
+        if (newChanel > 9) {
             return;
         }
         if (newChanel < 0) {
@@ -33,19 +32,19 @@ public class Radio {
         currentChanel = newChanel;
     }
 
-    public void nextChanel() {
-        if (currentChanel < currentChanelRatio - 1) {
+    public void setNextChanel() {
+        if (currentChanel < 9) {
             currentChanel = currentChanel + 1;
         } else {
             currentChanel = 0;
         }
     }
 
-    public void prevChanel() {
+    public void setPrevChanel() {
         if (currentChanel > 0) {
             currentChanel = currentChanel - 1;
         } else {
-            currentChanel = currentChanelRatio - 1;
+            currentChanel = 9;
         }
     }
 
