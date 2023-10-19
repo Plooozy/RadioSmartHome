@@ -1,6 +1,6 @@
 public class Radio {
-    public int currentChanel;
-    public int currentVolume;
+    private int currentChanel;
+    private int currentVolume;
     private int currentChanelRatio;
 
     public Radio(int chanelRatio) {
