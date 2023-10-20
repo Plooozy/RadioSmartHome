@@ -4,18 +4,27 @@ import org.junit.jupiter.api.Test;
 public class RadioTest {
 
     @Test
-    public void shouldSetChanelRatio() {
-        Radio radio = new Radio(16);
-        int expected = 16;
-        int actual = radio.getCurrentChanelRatio();
+    public void shouldSetQuantity20AndChanel15() {
+        Radio radio = new Radio(20);
+        radio.setCurrentChanel(15);
+        int expected = 15;
+        int actual = radio.getCurrentChanel();
         Assertions.assertEquals(expected, actual);
     }
 
     @Test
-    public void shouldNotSetChanelRatio() {
+    public void shouldSetChanelQuantity() {
+        Radio radio = new Radio(16);
+        int expected = 16;
+        int actual = radio.getCurrentChanelQuantity();
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void shouldNotSetChanelQuantity() {
         Radio radio = new Radio(-16);
         int expected = 0;
-        int actual = radio.getCurrentChanelRatio();
+        int actual = radio.getCurrentChanelQuantity();
         Assertions.assertEquals(expected, actual);
     }
 
@@ -31,7 +40,7 @@ public class RadioTest {
     @Test
     public void shouldNotSetChanelHigher() {
         Radio radio = new Radio();
-        radio.setCurrentChanel(10);
+        radio.setCurrentChanel(15);
         int expected = 0;
         int actual = radio.getCurrentChanel();
         Assertions.assertEquals(expected, actual);
@@ -40,7 +49,7 @@ public class RadioTest {
     @Test
     public void shouldNotSetChanelLower() {
         Radio radio = new Radio();
-        radio.setCurrentChanel(-1);
+        radio.setCurrentChanel(-15);
         int expected = 0;
         int actual = radio.getCurrentChanel();
         Assertions.assertEquals(expected, actual);
